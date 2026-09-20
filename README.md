@@ -1,3 +1,37 @@
+# OnePlus Nord 5 Kernel: KernelSU + SUSFS (sm8635, 6.1 GKI)
+
+Custom kernel for **OnePlus Nord 5 (sm8635)** with **KernelSU** and **SUSFS**
+built in, based on OnePlus's official kernel source for firmware **15.0.2.600**.
+
+## Features
+- KernelSU (tiann) built in, commit `e7271860`
+- SUSFS v2.3.0 patched for KernelSU, to hide root and mounts
+- Base kernel 6.1.118 (android14-6.1 GKI), branch `OnePlusNord_5_15.0.2.600`
+- Tested: permanent flash boots and works on 15.0.2.600
+
+## Download
+See the **Releases** page for the latest boot.img / zip.
+
+## Install
+1. **Back up your stock boot.img first.**
+2. Unlock the bootloader.
+3. Flash: `fastboot flash boot boot.img`
+4. Install the KernelSU manager app.
+
+Only use this on the **same firmware (15.0.2.600)**. Other versions may bootloop.
+
+## Build
+    make O=out ARCH=arm64 LLVM=1 <your_defconfig>
+    make O=out ARCH=arm64 LLVM=1 -j$(nproc)
+
+## Credits
+- OnePlusOSS (kernel source)
+- tiann/KernelSU
+- simonpunk / susfs4ksu
+- Licensed under GPLv2, like the Linux kernel.
+
+## Disclaimer
+Flash at your own risk. I am not responsible for bricked devices.
 # How do I submit patches to Android Common Kernels
 
 1. BEST: Make all of your changes to upstream Linux. If appropriate, backport to the stable releases.
