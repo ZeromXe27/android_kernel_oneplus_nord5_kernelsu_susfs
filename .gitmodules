@@ -1,0 +1,4 @@
+[submodule "KernelSU"]
+	path = KernelSU
+	url = https://github.com/ZeromXe27/KernelSU.git
+	branch = susfs-e7271860
